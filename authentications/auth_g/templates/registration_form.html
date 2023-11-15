@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>Google Profile Data</h1>
+    <p>Name: {{ google_profile_data.name }}</p>
+    <p>Email: {{ google_profile_data.email }}</p>
+    <p>Profile Photo URL: {{ google_profile_data.picture }}</p>
+
+    <h2>User Registration</h2>
+    <h1>Create User</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

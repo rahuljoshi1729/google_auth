@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data</title>
+</head>
+<body>
+    <h1>User Data</h1>
+    <p><strong>User:</strong></p>
+    <p>ID: {{ user.id }}</p>
+    <p>Name: {{ user.leader_name }}</p>
+    <p>Email: {{ user.leader_email }}</p>
+    <p>Payment Amount: ${{ user.payment_amount }}</p>
+
+    <p><strong>Team Members:</strong></p>
+    <ul>
+        {% for member in team_members %}
+            <h3>Member1</h3>
+            <li>Name: {{ member.teammember1_name }}</li>
+            <li>Email: {{ member.teammember1_email }}</li>
+            <li>Role: {{ member.role1 }}</li>
+            <br>
+            <h3>Member2</h3>
+            <li>Name: {{ member.teammember2_name }}</li>
+            <li>Email: {{ member.teammember2_email }}</li>
+            <li>Role: {{ member.role2 }}</li>
+            <br>
+            <h3>Member3</h3>
+            <li>Name: {{ member.teammember3_name }}</li>
+            <li>Email: {{ member.teammember3_email }}</li>
+            <li>Role: {{ member.role3 }}</li>
+            
+            <!-- Repeat the above for teammember2 and teammember3 -->
+        {% endfor %}
+    </ul>
+    {% if registration_successful %}
+        <h1>Registration Successful</h1>
+        <a href="/google/registrationemail/{{user.id}}/">click to send email</a>
+    {% else %}
+        <a href="/google/initiate_payment/?user_id={{user.id}}">Go to Payment Portal</a>
+    {% endif %}
+
+</body>
+</html>

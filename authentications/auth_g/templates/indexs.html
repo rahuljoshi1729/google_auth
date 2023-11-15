@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Initiation</title>
+</head>
+<body>
+    <h1>Initiate Payment</h1>
+    <p><strong>Amount: Rs {{ razorpay_amount }}</strong></p>
+    <form action='/google/payment/callback/' method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="razorpay_order_id" value="{{ razorpay_order_id }}">
+        <input type="hidden" name="razorpay_payment_id" value="">
+        <input type="hidden" name="razorpay_signature" value="">
+        <input type="hidden" name="user" value="{{ user }}">
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="{{ razorpay_merchant_key }}"
+            data-amount="{{ razorpay_amount }}"
+            data-currency="{{ currency }}"
+            data-order_id="{{ razorpay_order_id }}"
+            data-buttontext="Pay with Razorpay"
+            data-name="Your Company Name"
+            data-description="Payment for a product"
+            data-image="your_logo_url.png"
+            data-prefill.name="{{ user.leader_name }}"
+            data-prefill.email="{{ user.leader_email }}"
+            data-theme.color="#F37254"
+        ></script>
+    </form>
+</body>
+</html>
+
