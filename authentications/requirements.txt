@@ -38,7 +38,7 @@ jedi==0.17.2
 Jinja2==3.1.2
 MarkupSafe==2.1.1
 MouseInfo==0.1.3
-mss==9.0.1
+mss==7.0.1
 my-package==0.0.0
 mysql-connector-python==8.0.32
 oauthlib==3.2.2
